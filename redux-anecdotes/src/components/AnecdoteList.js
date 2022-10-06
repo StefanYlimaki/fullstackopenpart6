@@ -7,6 +7,9 @@ import store from '../store'
 const AnecdoteList = () => {
   const dispatch = useDispatch()
   const anecdotes = useSelector(state => state.anecdotes)
+  const filter = useSelector(state => state.filter)
+
+  const filteredAnecdotes = anecdotes.filter(a => a.content.toLowerCase().includes(filter.toLowerCase()))
 
   const handleVote = (id) => {
     const anecdotes = store.getState().anecdotes
@@ -20,7 +23,7 @@ const AnecdoteList = () => {
     }, 5000)
   } 
 
-  const sortedAnecdotes = orderBy(anecdotes, ['votes'], ['desc'])
+  const sortedAnecdotes = orderBy(filteredAnecdotes, ['votes'], ['desc'])
 
   return(
     sortedAnecdotes.map(anecdote =>
