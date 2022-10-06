@@ -1,11 +1,13 @@
 
 import anecdoteSlice from './reducers/anecdoteReducer'
+import notificationSlice from './reducers/notificationReducer'
 
 const { configureStore } = require("@reduxjs/toolkit")
 
 const store = configureStore({
     reducer: {
-        anecdotes: anecdoteSlice
+        anecdotes: anecdoteSlice,
+        notifications: notificationSlice
     }
 })
 
