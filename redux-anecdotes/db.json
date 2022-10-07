@@ -2,12 +2,12 @@
   "anecdotes": [
     {
       "content": "Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.",
-      "votes": 4,
+      "votes": 5,
       "id": 846135
     },
     {
       "content": "Premature optimization is the root of all evil.",
-      "votes": 29,
+      "votes": 34,
       "id": 842435
     },
     {
@@ -33,27 +33,47 @@
     {
       "content": "afsgggggggggggggggggggggggggggggg",
       "id": "29625",
-      "votes": 1
+      "votes": 5
     },
     {
       "content": "",
       "id": "62349",
-      "votes": 2
+      "votes": 5
     },
     {
       "content": "afsgggggggggggggggggggggggggggggg",
       "id": "778",
-      "votes": 1
+      "votes": 5
     },
     {
       "content": "",
       "id": "27089",
-      "votes": 2
+      "votes": 5
     },
     {
       "content": "TATATATATATATa",
       "id": "752",
-      "votes": 34
+      "votes": 70
+    },
+    {
+      "content": "afsgggggggggggggggggggggggggggggg",
+      "id": "12611",
+      "votes": 5
+    },
+    {
+      "content": "afsgggggggggggggggggggggggggggggg",
+      "id": "96427",
+      "votes": 0
+    },
+    {
+      "content": "",
+      "id": "42038",
+      "votes": 0
+    },
+    {
+      "content": "afsgggggggggggggggggggggggggggggg",
+      "id": "91083",
+      "votes": 0
     }
   ]
 }

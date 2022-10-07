@@ -1,9 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { vote } from '../reducers/anecdoteReducer'
 import { setNotification } from '../reducers/notificationReducer'
 import { orderBy } from "lodash"
 import store from '../store'
-import anecdoteService from '../services/anecdotes'
+import { voteAnecdote } from '../reducers/anecdoteReducer'
 
 const AnecdoteList = () => {
   const dispatch = useDispatch()
@@ -15,15 +14,9 @@ const AnecdoteList = () => {
   const handleVote = async (id) => {
     const anecdotes = store.getState().anecdotes
     const anecdote = anecdotes.find(a => a.id === id)
-    const message = `You voted '${anecdote.content}'`
     const changedAnecdote = {...anecdote, votes: anecdote.votes + 1}
-    await anecdoteService.update(changedAnecdote)
-    dispatch(vote(id))
-    dispatch(setNotification(message))
-    setTimeout(() => {
-      const emptyMessage = ''
-      dispatch(setNotification(emptyMessage))
-    }, 5000)
+    dispatch(voteAnecdote(changedAnecdote))
+    dispatch(setNotification(`you voted '${anecdote.content}'`, 2))
   } 
 
   const sortedAnecdotes = orderBy(filteredAnecdotes, ['votes'], ['desc'])
