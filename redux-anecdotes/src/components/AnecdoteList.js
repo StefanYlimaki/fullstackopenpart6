@@ -3,6 +3,7 @@ import { vote } from '../reducers/anecdoteReducer'
 import { setNotification } from '../reducers/notificationReducer'
 import { orderBy } from "lodash"
 import store from '../store'
+import anecdoteService from '../services/anecdotes'
 
 const AnecdoteList = () => {
   const dispatch = useDispatch()
@@ -11,10 +12,12 @@ const AnecdoteList = () => {
 
   const filteredAnecdotes = anecdotes.filter(a => a.content.toLowerCase().includes(filter.toLowerCase()))
 
-  const handleVote = (id) => {
+  const handleVote = async (id) => {
     const anecdotes = store.getState().anecdotes
     const anecdote = anecdotes.find(a => a.id === id)
     const message = `You voted '${anecdote.content}'`
+    const changedAnecdote = {...anecdote, votes: anecdote.votes + 1}
+    await anecdoteService.update(changedAnecdote)
     dispatch(vote(id))
     dispatch(setNotification(message))
     setTimeout(() => {
@@ -26,7 +29,8 @@ const AnecdoteList = () => {
   const sortedAnecdotes = orderBy(filteredAnecdotes, ['votes'], ['desc'])
 
   return(
-    sortedAnecdotes.map(anecdote =>
+    sortedAnecdotes 
+    .map(anecdote =>
       <div key={anecdote.id}>
         <div>
           {anecdote.content}
