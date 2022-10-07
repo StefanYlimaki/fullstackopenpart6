@@ -7,7 +7,7 @@ const { configureStore } = require("@reduxjs/toolkit")
 const store = configureStore({
     reducer: {
         anecdotes: anecdoteSlice,
-        notifications: notificationSlice,
+        notification: notificationSlice,
         filter: filterReducer
     }
 })
